@@ -35,6 +35,17 @@ mengganti kombinasi tombol, atau mematikan mulai otomatis.
 
 Hasil baca QR code disalin ke clipboard sekaligus disimpan sebagai `.txt`.
 
+## Filosofi ikon
+
+Ikon Jelma terinspirasi dari susunan Candi Borobudur: teras **persegi** di bawah (*Rupadhatu*, ranah yang masih
+terikat bentuk) naik menuju teras **melingkar** di atas (*Arupadhatu*, ranah tanpa bentuk).
+
+- **Persegi** di kiri-bawah: berkas dalam wujud asalnya.
+- **Lingkaran** di kanan-atas: berkas dalam wujud barunya.
+- **Arah naik**: perubahan sebagai pendakian, dibaca kiri ke kanan dan bawah ke atas.
+- **Irisan yang dilubangi**: saat *menjelma* ("mewujudkan diri; mengambil bentuk", KBBI), bukan lagi persegi dan belum lingkaran.
+- **Putih utuh**: berkas asli tidak pernah dirusak; yang berubah hanya wujudnya.
+
 ## Membangun dari kode
 
 Butuh Python 3.12 dan [Inno Setup 6](https://jrsoftware.org/isinfo.php).

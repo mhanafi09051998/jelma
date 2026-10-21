@@ -34,12 +34,13 @@ def buat_gambar(sisi: int = 256) -> Image.Image:
     img = _gradasi(s).convert("RGBA")
     img.putalpha(ubin)
 
-    # Kotak (wujud asal) dan lingkaran (wujud baru) saling menimpa; irisannya dilubangi.
+    # Seperti teras Borobudur: persegi (rupa, berwujud) di bawah naik menjadi lingkaran (arupa) di atas.
+    # Irisannya dilubangi: saat menjelma, bukan lagi persegi dan belum lingkaran.
     kotak = Image.new("L", (s, s), 0)
     ImageDraw.Draw(kotak).rounded_rectangle(
-        (int(s * 0.17), int(s * 0.17), int(s * 0.61), int(s * 0.61)), radius=int(s * 0.07), fill=255)
+        (int(s * 0.17), int(s * 0.39), int(s * 0.61), int(s * 0.83)), radius=int(s * 0.07), fill=255)
     bulat = Image.new("L", (s, s), 0)
-    ImageDraw.Draw(bulat).ellipse((int(s * 0.39), int(s * 0.39), int(s * 0.83), int(s * 0.83)), fill=255)
+    ImageDraw.Draw(bulat).ellipse((int(s * 0.39), int(s * 0.17), int(s * 0.83), int(s * 0.61)), fill=255)
     bentuk = ImageChops.logical_xor(kotak.convert("1"), bulat.convert("1")).convert("L")
 
     putih = Image.new("RGBA", (s, s), (255, 255, 255, 255))
