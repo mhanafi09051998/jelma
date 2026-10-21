@@ -1,0 +1,9 @@
+Pillow>=12.0
+pillow-heif>=1.0
+pypdf>=6.0
+pypdfium2>=4.30
+zxing-cpp>=2.3
+pywin32>=308
+pystray>=0.19
+pyinstaller>=6.10
+pytest>=8.0

@@ -1,0 +1,16 @@
+Jelma membawa komponen pihak ketiga berikut di dalam installer.
+
+FFmpeg (ffmpeg.exe, ffprobe.exe)
+  Build: BtbN/FFmpeg-Builds (win64, GPL)
+  Lisensi: GNU General Public License v3 (teks lengkap: vendor/LICENSE.txt di folder instalasi)
+  Kode sumber: https://ffmpeg.org/download.html  dan  https://github.com/BtbN/FFmpeg-Builds
+  Jelma menjalankan FFmpeg sebagai program terpisah (subprocess); FFmpeg tidak ditautkan ke kode Jelma.
+
+Pillow                - MIT-CMU License        https://github.com/python-pillow/Pillow
+pillow-heif           - BSD-3-Clause (libheif LGPL-3.0, ditautkan dinamis)  https://github.com/bigcat88/pillow_heif
+pypdf                 - BSD-3-Clause           https://github.com/py-pdf/pypdf
+pypdfium2 / PDFium    - Apache-2.0 / BSD-3-Clause  https://github.com/pypdfium2-team/pypdfium2
+zxing-cpp             - Apache-2.0             https://github.com/zxing-cpp/zxing-cpp
+pywin32               - PSF License            https://github.com/mhammond/pywin32
+pystray               - LGPL-3.0               https://github.com/moses-palmer/pystray
+Python                - PSF License            https://www.python.org
