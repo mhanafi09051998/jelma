@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Konfigurasi artefak SignPath "aplikasi": artefak GitHub berupa zip berisi jelma.exe. -->
-<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
-  <zip-file>
-    <pe-file path="jelma.exe">
-      <authenticode-sign />
-    </pe-file>
-  </zip-file>
-</artifact-configuration>

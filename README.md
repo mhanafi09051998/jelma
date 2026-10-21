@@ -11,8 +11,7 @@ Hasilnya selalu berupa salinan baru di samping berkas asli; berkas asli tidak pe
 Ambil `Jelma-Setup-x.y.z.exe` dari halaman [Releases](https://github.com/mhanafi09051998/jelma/releases), lalu jalankan.
 Pemasangan tidak butuh hak admin dan tidak butuh Python.
 
-> Installer sedang dalam proses pendaftaran tanda tangan kode gratis dari SignPath Foundation
-> ([kebijakan penandatanganan](CODE_SIGNING.md)). Sampai itu aktif, Windows SmartScreen bisa menampilkan
+> Installer tidak ditandatangani (code signing), jadi Windows SmartScreen bisa menampilkan
 > "Windows protected your PC". Klik **More info → Run anyway**.
 
 ## Cara pakai

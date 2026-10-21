@@ -1,19 +1,11 @@
-# Bangun installer dari kode di repo, tandatangani lewat SignPath Foundation, lalu terbitkan Release.
-# Penandatanganan aktif bila variabel repo SIGNPATH_ORGANIZATION_ID dan rahasia SIGNPATH_API_TOKEN sudah diisi;
-# tanpa itu installer tetap dibangun, tetapi tidak bertanda tangan.
+# Bangun installer dari kode di repo (dijalankan manual dari tab Actions) dan simpan sebagai artefak.
 name: Rilis
 
 on:
-  push:
-    tags: ["v*"]
   workflow_dispatch:
 
 permissions:
-  contents: write
-  actions: read
-
-env:
-  TANDATANGANI: ${{ vars.SIGNPATH_ORGANIZATION_ID != '' }}
+  contents: read
 
 jobs:
   bangun:
@@ -31,66 +23,10 @@ jobs:
           python -m pip install -r requirements.txt
           choco install innosetup -y --no-progress
 
-      - name: Bangun aplikasi
-        run: powershell -ExecutionPolicy Bypass -File build.ps1 -Tahap aplikasi
+      - name: Bangun
+        run: powershell -ExecutionPolicy Bypass -File build.ps1
 
-      - name: Unggah jelma.exe untuk ditandatangani
-        if: env.TANDATANGANI == 'true'
-        id: aplikasi
-        uses: actions/upload-artifact@v4
-        with:
-          name: jelma-exe
-          path: build/dist/jelma/jelma.exe
-
-      - name: Tandatangani jelma.exe
-        if: env.TANDATANGANI == 'true'
-        uses: signpath/github-action-submit-signing-request@v1
-        with:
-          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
-          organization-id: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
-          project-slug: jelma
-          signing-policy-slug: release-signing
-          artifact-configuration-slug: aplikasi
-          github-artifact-id: ${{ steps.aplikasi.outputs.artifact-id }}
-          wait-for-completion: true
-          output-artifact-directory: build/dist/jelma
-
-      - name: Bangun installer
-        run: powershell -ExecutionPolicy Bypass -File build.ps1 -Tahap installer
-
-      - name: Unggah installer untuk ditandatangani
-        if: env.TANDATANGANI == 'true'
-        id: installer
-        uses: actions/upload-artifact@v4
-        with:
-          name: jelma-setup
-          path: dist/Jelma-Setup-*.exe
-
-      - name: Tandatangani installer
-        if: env.TANDATANGANI == 'true'
-        uses: signpath/github-action-submit-signing-request@v1
-        with:
-          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
-          organization-id: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
-          project-slug: jelma
-          signing-policy-slug: release-signing
-          artifact-configuration-slug: installer
-          github-artifact-id: ${{ steps.installer.outputs.artifact-id }}
-          wait-for-completion: true
-          output-artifact-directory: dist
-
-      - name: Simpan installer akhir
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: Jelma-Setup
           path: dist/Jelma-Setup-*.exe
-
-      - name: Terbitkan Release
-        if: startsWith(github.ref, 'refs/tags/v')
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          $berkas = Get-ChildItem dist\Jelma-Setup-*.exe | Select-Object -First 1
-          gh release view $env:GITHUB_REF_NAME 2>$null
-          if ($LASTEXITCODE -eq 0) { gh release upload $env:GITHUB_REF_NAME $berkas.FullName --clobber }
-          else { gh release create $env:GITHUB_REF_NAME $berkas.FullName --title "Jelma $($env:GITHUB_REF_NAME.TrimStart('v'))" --generate-notes }
