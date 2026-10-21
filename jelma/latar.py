@@ -11,7 +11,7 @@ from ctypes import wintypes
 import pystray
 import win32api
 
-from jelma import antrean, daftar_aksi, ikon, menu_kursor, pilihan_explorer, registri, setelan, ui_tk
+from jelma import antrean, daftar_aksi, ikon, menu_kursor, pembaruan, pilihan_explorer, registri, setelan, ui_tk
 
 WM_HOTKEY, WM_QUIT, WM_APP = 0x0312, 0x0012, 0x8000
 WM_GANTI_PINTASAN = WM_APP + 1
@@ -185,12 +185,17 @@ def _menu_tray(pintasan: Pintasan) -> pystray.Menu:
         pintasan.berhenti()
         ui_tk.berhenti()
 
+    def perbarui(_icon, _item):
+        _setelan["perbarui_otomatis"] = not _setelan["perbarui_otomatis"]
+        setelan.simpan({**setelan.muat(), "perbarui_otomatis": _setelan["perbarui_otomatis"]})
+
     return pystray.Menu(
         pystray.MenuItem("Jeda pintasan", jeda, checked=lambda _i: _setelan["jeda"]),
         pystray.MenuItem(lambda _i: f"Ganti pintasan ({setelan.tampilan(_setelan['pintasan'])})…",
                          lambda: ui_tk.panggil(lambda: _dialog_pintasan(pintasan))),
         pystray.MenuItem("Jalan saat Windows mulai", mulai_otomatis,
                          checked=lambda _i: registri.mulai_otomatis_aktif()),
+        pystray.MenuItem("Perbarui otomatis", perbarui, checked=lambda _i: _setelan["perbarui_otomatis"]),
         pystray.Menu.SEPARATOR,
         pystray.MenuItem("Keluar", keluar),
     )
@@ -204,5 +209,13 @@ def main() -> int:
     pintasan.start()
     icon = pystray.Icon("Jelma", ikon.gambar_tray(), "Jelma", _menu_tray(pintasan))
     icon.run_detached()
+
+    def pasang_pembaruan(installer):
+        pembaruan.pasang(installer)
+        icon.stop()
+        pintasan.berhenti()
+        ui_tk.berhenti()
+
+    pembaruan.mulai(pasang_pembaruan)
     ui_tk.jalankan_loop()
     return 0

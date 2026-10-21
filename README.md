@@ -4,7 +4,7 @@
 
 Jelma mengubah format berkas dari Windows Explorer. Pilih berkas, tekan Ctrl + Alt + J, lalu pilih formatnya dari menu
 yang muncul di kursor. Hasilnya disimpan sebagai berkas baru di folder yang sama, dan berkas aslinya tidak diubah.
-Semua proses berjalan di komputer Anda.
+Semua konversi berjalan di komputer Anda.
 
 Unduh installer terbaru di halaman [Releases](https://github.com/mhanafi09051998/jelma/releases/latest).
 
@@ -37,7 +37,7 @@ Selama berjalan, Jelma menampilkan jendela kecil di pojok kanan bawah. Klik nama
 <img src="docs/progres.png" width="320" alt="Jendela progres Jelma berisi dua berkas WEBP yang sudah jadi">
 
 Jelma berjalan di latar belakang sebagai ikon di tray dan memakai sekitar 45 MB memori. Klik kanan ikon itu untuk
-menjeda pintasan, mengganti kombinasi tombolnya, atau mematikan mulai otomatis.
+menjeda pintasan, mengganti kombinasi tombolnya, mematikan mulai otomatis, atau mematikan pembaruan otomatis.
 
 ## Memasang
 
@@ -50,6 +50,13 @@ Ukuran installer sekitar 120 MB. Sebagian besar berasal dari FFmpeg, yang dipaka
 
 Untuk menghapus, buka Settings, Apps, Installed apps, lalu uninstall Jelma. Menu klik kanan dan entri mulai otomatis
 ikut terhapus.
+
+## Pembaruan otomatis
+
+Saat komputer online, Jelma menanyakan versi terbaru ke GitHub paling sering sekali sehari. Yang dikirim hanya
+permintaan itu; nama dan isi berkas Anda tidak pernah dikirim. Bila ada versi baru, installer diunduh, dicocokkan
+ukuran dan SHA256-nya dengan data rilis, lalu dipasang tanpa jendela. Pembaruan bisa dimatikan dari ikon tray,
+lewat pilihan Perbarui otomatis. Kodenya ada di [`jelma/pembaruan.py`](jelma/pembaruan.py).
 
 ## Ikon
 

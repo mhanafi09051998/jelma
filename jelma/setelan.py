@@ -3,7 +3,7 @@ import json
 import os
 from pathlib import Path
 
-BAWAAN = {"pintasan": "ctrl+alt+j", "jeda": False}
+BAWAAN = {"pintasan": "ctrl+alt+j", "jeda": False, "perbarui_otomatis": True, "cek_terakhir": 0.0}
 
 MOD_ALT, MOD_CONTROL, MOD_SHIFT, MOD_WIN, MOD_NOREPEAT = 0x1, 0x2, 0x4, 0x8, 0x4000
 # urutan kanonik saat menulis teks pintasan

@@ -51,7 +51,7 @@ def test_muat_simpan(tmp_path, monkeypatch):
     monkeypatch.setenv("APPDATA", str(tmp_path))
     assert setelan.muat() == setelan.BAWAAN
     setelan.simpan({"pintasan": "ctrl+shift+k", "jeda": True})
-    assert setelan.muat() == {"pintasan": "ctrl+shift+k", "jeda": True}
+    assert setelan.muat() == {**setelan.BAWAAN, "pintasan": "ctrl+shift+k", "jeda": True}
     berkas = tmp_path / "Jelma" / "setelan.json"
     berkas.write_text('{"jeda": "ya", "asing": 1}', encoding="utf-8")
     assert setelan.muat() == setelan.BAWAAN
