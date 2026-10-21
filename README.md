@@ -1,90 +1,64 @@
-<div align="center">
-
-<img src="aset/jelma.png" width="112" alt="Ikon Jelma">
+<img src="aset/jelma.png" width="64" alt="Ikon Jelma">
 
 # Jelma
 
-**Ubah format berkas langsung dari Windows Explorer. Tanpa membuka aplikasi, tanpa internet.**
+Jelma mengubah format berkas dari Windows Explorer. Pilih berkas, tekan Ctrl + Alt + J, lalu pilih formatnya dari menu
+yang muncul di kursor. Hasilnya disimpan sebagai berkas baru di folder yang sama, dan berkas aslinya tidak diubah.
+Semua proses berjalan di komputer Anda.
 
-Pilih berkas → tekan <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd> → pilih format. Selesai.
+Unduh installer terbaru di halaman [Releases](https://github.com/mhanafi09051998/jelma/releases/latest).
 
-[![Rilis](https://img.shields.io/github/v/release/mhanafi09051998/jelma?label=rilis&color=22c55e)](https://github.com/mhanafi09051998/jelma/releases/latest)
-[![Unduhan](https://img.shields.io/github/downloads/mhanafi09051998/jelma/total?label=unduhan&color=0ea5e9)](https://github.com/mhanafi09051998/jelma/releases)
-[![Windows 10/11](https://img.shields.io/badge/Windows-10%20%7C%2011-0078d4?logo=windows)](#unduh)
-[![Lisensi MIT](https://img.shields.io/github/license/mhanafi09051998/jelma?label=lisensi&color=64748b)](LICENSE)
+<img src="docs/pintasan.png" width="720" alt="Dua foto dipilih di Explorer, Ctrl+Alt+J memunculkan menu Jelma di kursor">
 
-### [⬇ Unduh Jelma untuk Windows](https://github.com/mhanafi09051998/jelma/releases/latest)
+## Format yang didukung
 
-<img src="docs/pintasan.png" width="760" alt="Dua foto dipilih di Explorer, Ctrl+Alt+J memunculkan menu Jelma di kursor berisi pilihan format">
-
-</div>
-
-## Kenapa Jelma
-
-- **Tidak perlu membuka apa pun.** Menu format muncul tepat di kursor, di jendela Explorer yang sedang Anda pakai.
-- **Berkas Anda tidak ke mana-mana.** Semua diproses di laptop sendiri. Tidak ada unggahan ke situs konverter, tidak ada akun, tidak ada iklan.
-- **Berkas asli tidak pernah diubah.** Hasilnya selalu salinan baru di sampingnya: `foto.heic` → `foto.webp`.
-- **Banyak berkas sekaligus.** Pilih 50 foto, satu kali tekan, semuanya dikerjakan berurutan dalam satu jendela kecil.
-
-## Yang bisa dilakukan
-
-| Jenis | Masukan | Menjadi / alat |
+| Jenis | Masukan | Bisa diubah menjadi atau diproses dengan |
 |---|---|---|
-| 🖼️ Gambar | PNG, JPG, WEBP, AVIF, **HEIC (iPhone)**, BMP, GIF, TIFF, ICO | PNG, JPG, WEBP, AVIF, BMP, GIF, TIFF, ICO, PDF · kompres · perkecil 50% · hapus metadata (lokasi GPS, kamera) · baca QR code |
-| 🎬 Video | MP4, MKV, WEBM, MOV, AVI, M4V, WMV, FLV | MP4, MKV, WEBM, MOV, GIF · ambil audio MP3 · kompres · hapus metadata |
-| 🎵 Audio | MP3, WAV, OGG, FLAC, M4A, AAC, OPUS, WMA | MP3, WAV, OGG, FLAC, M4A, OPUS · hapus metadata |
-| 📄 PDF | PDF | Kompres · ke PNG/JPG per halaman · hapus metadata |
+| Gambar | PNG, JPG, WEBP, AVIF, HEIC, BMP, GIF, TIFF, ICO | PNG, JPG, WEBP, AVIF, BMP, GIF, TIFF, ICO, PDF, kompres, perkecil 50%, hapus metadata, baca QR code |
+| Video | MP4, MKV, WEBM, MOV, AVI, M4V, WMV, FLV | MP4, MKV, WEBM, MOV, GIF, ambil audio MP3, kompres, hapus metadata |
+| Audio | MP3, WAV, OGG, FLAC, M4A, AAC, OPUS, WMA | MP3, WAV, OGG, FLAC, M4A, OPUS, hapus metadata |
+| PDF | PDF | Kompres, ke PNG atau JPG per halaman, hapus metadata |
 
-Hasil baca QR code langsung disalin ke clipboard, sekaligus disimpan sebagai `.txt`.
+Hapus metadata membuang data seperti lokasi GPS dan merek kamera dari foto. Hasil baca QR code disalin ke clipboard
+dan disimpan sebagai berkas `.txt`.
 
-## Dua cara memakai
+## Cara memakai
 
-**1. Pintasan keyboard** (paling cepat): pilih berkas di Explorer atau Desktop, tekan <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>J</kbd>.
+Pilih satu atau beberapa berkas di Explorer atau di Desktop, lalu tekan Ctrl + Alt + J. Kalau berkas yang dipilih
+berbeda jenis, menu hanya menampilkan pilihan yang berlaku untuk semuanya.
 
-**2. Menu klik kanan**: tahan <kbd>Shift</kbd>, klik kanan berkas, pilih **Jelma**. Menu ini hanya muncul saat Shift ditahan, jadi menu klik kanan biasa Anda tetap bersih.
+Cara lain: tahan Shift, klik kanan berkas, lalu pilih Jelma. Menu ini sengaja hanya muncul saat Shift ditahan supaya
+menu klik kanan biasa tidak bertambah panjang.
 
-<div align="center">
-<img src="docs/klik-kanan.png" width="620" alt="Shift + klik kanan pada foto memunculkan menu Jelma dengan submenu format">
-<br><br>
-<img src="docs/progres.png" width="340" alt="Jendela kecil Jelma di pojok layar menampilkan progres dan hasil konversi">
-<br><sub>Progres tampil di pojok layar. Klik nama hasil untuk membukanya di Explorer.</sub>
-</div>
+<img src="docs/klik-kanan.png" width="600" alt="Shift + klik kanan pada foto memunculkan menu Jelma dengan daftar format">
 
-Jelma berjalan diam-diam sebagai ikon kecil di tray (±45 MB RAM). Dari ikon itu Anda bisa menjeda pintasan, mengganti kombinasi tombol, atau mematikan mulai otomatis.
+Selama berjalan, Jelma menampilkan jendela kecil di pojok kanan bawah. Klik nama berkas hasil untuk membuka foldernya.
 
-## Unduh
+<img src="docs/progres.png" width="320" alt="Jendela progres Jelma berisi dua berkas WEBP yang sudah jadi">
 
-1. Unduh **`Jelma-Setup-x.y.z.exe`** dari [rilis terbaru](https://github.com/mhanafi09051998/jelma/releases/latest).
-2. Jalankan. Tidak butuh hak admin, tidak butuh Python.
-3. Selesai: Jelma langsung aktif dan ikut menyala setiap Windows mulai.
+Jelma berjalan di latar belakang sebagai ikon di tray dan memakai sekitar 45 MB memori. Klik kanan ikon itu untuk
+menjeda pintasan, mengganti kombinasi tombolnya, atau mematikan mulai otomatis.
 
-> **Muncul "Windows protected your PC"?** Installer ini belum ditandatangani (code signing berbayar).
-> Klik **More info → Run anyway**. Seluruh kodenya terbuka di repo ini untuk diperiksa siapa saja.
+## Memasang
 
-<details>
-<summary><b>Pertanyaan umum</b></summary>
+Jalankan `Jelma-Setup-x.y.z.exe`. Installer tidak meminta hak admin dan tidak membutuhkan Python.
 
-**Apakah butuh internet?** Tidak. Setelah terpasang, Jelma tidak pernah mengirim apa pun ke internet.
+Installer ini belum ditandatangani, jadi Windows bisa menampilkan peringatan "Windows protected your PC". Klik
+More info, lalu Run anyway. Kode lengkapnya ada di repo ini.
 
-**Pintasan Ctrl+Alt+J bentrok dengan aplikasi lain.** Klik kanan ikon Jelma di tray → *Ganti pintasan*.
+Ukuran installer sekitar 120 MB. Sebagian besar berasal dari FFmpeg, yang dipakai untuk video dan audio.
 
-**Cara menghapus Jelma?** Settings → Apps → Installed apps → Jelma → Uninstall. Menu klik kanan dan mulai otomatis ikut terhapus.
+Untuk menghapus, buka Settings, Apps, Installed apps, lalu uninstall Jelma. Menu klik kanan dan entri mulai otomatis
+ikut terhapus.
 
-**Kenapa ukurannya ±120 MB?** Sebagian besar adalah FFmpeg, mesin konversi video dan audio yang dibawa di dalamnya agar Anda tidak perlu memasang apa pun lagi.
+## Ikon
 
-</details>
+Bentuk ikon diambil dari susunan Candi Borobudur. Teras bawahnya persegi (Rupadhatu, ranah yang masih terikat bentuk)
+dan teras atasnya melingkar (Arupadhatu, ranah tanpa bentuk). Di ikon, persegi di kiri bawah adalah berkas asli dan
+lingkaran di kanan atas adalah hasilnya. Bagian yang bertumpuk dilubangi sebagai saat berkas berubah wujud, sesuai arti
+"menjelma" di KBBI: mewujudkan diri, mengambil bentuk.
 
-## Filosofi ikon
-
-Ikon Jelma terinspirasi dari susunan Candi Borobudur: teras **persegi** di bawah (*Rupadhatu*, ranah yang masih
-terikat bentuk) naik menuju teras **melingkar** di atas (*Arupadhatu*, ranah tanpa bentuk).
-
-- **Persegi** di kiri-bawah: berkas dalam wujud asalnya. **Lingkaran** di kanan-atas: wujud barunya.
-- **Arah naik**: perubahan sebagai pendakian, dibaca kiri ke kanan dan bawah ke atas.
-- **Irisan yang dilubangi**: saat *menjelma* ("mewujudkan diri; mengambil bentuk", KBBI), bukan lagi persegi dan belum lingkaran.
-- **Putih utuh**: berkas asli tidak pernah dirusak; yang berubah hanya wujudnya.
-
-## Untuk pengembang
+## Membangun dari kode
 
 Butuh Python 3.12 dan [Inno Setup 6](https://jrsoftware.org/isinfo.php).
 
@@ -93,16 +67,14 @@ pip install -r requirements.txt
 powershell -ExecutionPolicy Bypass -File build.ps1
 ```
 
-`build.ps1` mengunduh FFmpeg (build GPL BtbN, diverifikasi SHA256) ke `vendor/`, menjalankan tes, membekukan
-aplikasi dengan PyInstaller, lalu membuat `dist\Jelma-Setup-<versi>.exe`. Mode pengembangan tanpa build:
-`python masuk.py --latar`, atau `python masuk.py gambar-ke-webp foto.png`.
+`build.ps1` mengunduh FFmpeg (build GPL dari BtbN, dicek SHA256-nya) ke `vendor/`, menjalankan tes, membekukan
+aplikasi dengan PyInstaller, lalu membuat `dist\Jelma-Setup-<versi>.exe`. Untuk mencoba tanpa build, jalankan
+`python masuk.py --latar` atau `python masuk.py gambar-ke-webp foto.png`.
 
-Semua aksi didaftarkan di satu tempat, [`jelma/daftar_aksi.py`](jelma/daftar_aksi.py): menambah format baru cukup
-satu baris di sana, lalu menu klik kanan, menu pintasan, dan CLI ikut bertambah. Kontribusi dipersilakan.
+Daftar semua aksi ada di [`jelma/daftar_aksi.py`](jelma/daftar_aksi.py). Format baru cukup ditambahkan di sana, dan
+menu klik kanan, menu pintasan, serta perintah CLI ikut memakainya.
 
 ## Lisensi
 
-Kode Jelma berlisensi [MIT](LICENSE). Komponen pihak ketiga, termasuk FFmpeg (GPL v3, dijalankan sebagai
-program terpisah), tercantum di [PIHAK-KETIGA.txt](PIHAK-KETIGA.txt).
-
-<div align="center"><sub>Dibuat di Mojokerto oleh <a href="https://muhammadhanafi.web.id">Muhammad Hanafi</a></sub></div>
+Kode Jelma memakai lisensi [MIT](LICENSE). FFmpeg (GPL v3) dijalankan sebagai program terpisah. Daftar lengkap
+komponen pihak ketiga ada di [PIHAK-KETIGA.txt](PIHAK-KETIGA.txt).
